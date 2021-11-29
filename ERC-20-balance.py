@@ -61,6 +61,7 @@ def getInfo():
     global infoLabel
     
     name = name.get()
+    contractAddress=None
     for i in range(len(addressList)):
         if name == addressList[i][0]:
             contractAddress = addressList[i][1]
