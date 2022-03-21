@@ -13,7 +13,9 @@ load_dotenv()
 w3 = os.getenv('ETH_URL')
 web3 = Web3(Web3.HTTPProvider(w3))
 
-address_list = list(csv.reader(open("Tokens.csv")))
+with open("Tokens.csv", "r", encoding="utf-8") as file:
+    address_list = list(csv.reader(file))
+file.close()
 address_list = sorted(address_list, key=lambda x: x[0])
 
 address = None
