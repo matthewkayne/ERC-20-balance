@@ -1,12 +1,13 @@
 """ERC-20 Balance"""
 import tkinter as tk
-from tkinter import *
-from web3 import Web3
-from urllib.request import urlopen
-from dotenv import load_dotenv
+from tkinter import StringVar, OptionMenu, Label, Entry
 import os
 import json
 import csv
+from urllib.request import urlopen
+from web3 import Web3
+from dotenv import load_dotenv
+
 
 load_dotenv()
 
