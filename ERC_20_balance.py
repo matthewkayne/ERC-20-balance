@@ -75,7 +75,7 @@ def getInfo():
     info.destroy()
     drop.destroy()
 
-    total_supply_wei = contract.functions.total_supply().call()
+    total_supply_wei = contract.functions.totalSupply().call()
     total_supply = web3.fromWei(total_supply_wei, 'ether')
     symbol = contract.functions.symbol().call()
     info_label = Label(
