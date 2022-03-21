@@ -21,7 +21,7 @@ address_list = sorted(address_list, key=lambda x: x[0])
 
 address = None
 contract = None
-API_KEY = os.getenv('API_KEY')
+api_key = os.getenv('api_key')
 
 
 def get_contract(address):
@@ -29,7 +29,7 @@ def get_contract(address):
     global contract
 
     url = "https://api.etherscan.io/api?module=contract&action=getabi&address=" + \
-        address+"&apikey="+API_KEY
+        address+"&apikey="+api_key
 
     response = urlopen(url)
     abi = json.loads(response.read())["result"]
@@ -45,7 +45,7 @@ window.geometry("350x250")
 window.bind('<Escape>', lambda e: window.quit())
 
 name_list = []
-for i in range(len(address_list)):
+for i, _ in enumerate(address_list):
     name_list.append(address_list[i][0])
 
 name = StringVar(window)
@@ -70,7 +70,7 @@ def getInfo():
 
     name = name.get()
     contract_address = None
-    for i in range(len(address_list)):
+    for i, _ in enumerate(address_list):
         if name == address_list[i][0]:
             contract_address = address_list[i][1]
     get_contract(Web3.toChecksumAddress(contract_address))
